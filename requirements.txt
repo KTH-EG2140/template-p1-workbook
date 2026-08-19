@@ -1,0 +1,28 @@
+# Course environment — versions PINNED so every student, every TA and the
+# CI robot run the same stack. Do not upgrade mid-course on your own.
+
+# Core network analysis
+pandapower==3.5.4
+numba==0.67.0  # accelerator - pandapower runs ~10x faster with it
+pandas==2.3.3
+numpy==2.4.6
+matplotlib==3.11.1
+# pandapower needs a different scipy per Python version; pip picks the right line
+scipy==1.16.3; python_version < "3.12"
+scipy==1.18.0; python_version >= "3.12"
+
+# Data pipeline (Module 2)
+pyarrow==25.0.1  # Parquet
+duckdb==1.5.5
+entsoe-py==0.8.0
+requests==2.34.2
+
+# Time series and machine learning (Modules 2-3)
+statsmodels==0.14.6
+scikit-learn==1.9.0
+
+# Testing
+pytest==9.1.1
+
+# The toolbox itself, editable
+-e .

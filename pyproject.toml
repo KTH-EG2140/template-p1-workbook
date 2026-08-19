@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "svedala-toolbox"
+version = "0.1.0"
+description = "Course package for EG2140: tools for the Svedala transmission model"
+requires-python = ">=3.11"
+# Minimum library requirements only. The COURSE environment is pinned in
+# requirements.txt — that file is the single source of truth for versions.
+dependencies = ["pandapower>=3.0", "pandas", "matplotlib"]
+
+[project.scripts]
+svedala = "svedala_toolbox.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
