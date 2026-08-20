@@ -40,6 +40,8 @@ def run_power_flow(net: pp.pandapowerNet) -> pp.pandapowerNet:
 
     TODO (Lab 1): call pp.runpp, and raise a RuntimeError with a helpful
     message if the power flow does not converge (failing loudly beats
-    returning nonsense — Lecturecise 3).
+    returning nonsense — Lecturecise 3). Watch out: pandapower signals
+    non-convergence by RAISING its own pp.LoadflowNotConverged, not by
+    returning — catch that and re-raise it as your RuntimeError.
     """
     raise NotImplementedError("Lab 1")

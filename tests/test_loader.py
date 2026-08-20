@@ -17,7 +17,8 @@ from svedala_toolbox.loader import load_svedala, run_power_flow
 def test_network_sizes():
     """The model has the element counts we know from the data."""
     net = load_svedala()
-    assert len(net.bus) == 52
+    # One assertion message as a model: without it, a failure just says "52 != 51".
+    assert len(net.bus) == 52, f"expected 52 buses, got {len(net.bus)} — check index_col=0"
     assert len(net.line) == 52
     assert len(net.trafo) == 44
     assert len(net.gen) == 36
