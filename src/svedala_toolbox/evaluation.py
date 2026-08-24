@@ -12,6 +12,18 @@ def persistence(y: pd.Series, horizon: int = 24) -> pd.Series:
     raise NotImplementedError("Lab 7, task 1")
 
 
+def seasonal_persistence(y: pd.Series, horizon: int = 24, season: int = 168) -> pd.Series:
+    """The harder baseline: value(t) = value(t - season) — last Tuesday predicts this Tuesday.
+
+    Plain persistence smears the weekend into Monday; shifting by a whole week
+    (168 h) keeps the weekly shape. The lecture calls this the baseline worth
+    beating.
+    TODO (Lab 7): one line again. Then check: which of the two baselines wins
+    on your held-out week?
+    """
+    raise NotImplementedError("Lab 7, task 1b")
+
+
 def walk_forward(y: pd.Series, model_fn, test_start, test_end,
                  horizon: int = 24) -> pd.DataFrame:
     """Day-by-day out-of-sample evaluation. Never sees the future.
