@@ -1,6 +1,6 @@
 """Tests for the Svedala loader.
 
-One test is written for you as a model. Lab 1 ends with you writing THE
+Two tests are written for you as models. Lab 1 ends with you writing THE
 FIRST TEST THE SVEDALA LOADER HAS EVER HAD — one more test, yours, that
 checks something you think matters. Ideas: the slack generator is the
 one flagged in generators.csv, all loads sit on existing buses, total
