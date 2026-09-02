@@ -8,7 +8,7 @@ screener, a data pipeline, and the analysis on top.
 ## Getting started (Lab 1)
 
 ```bash
-python -m venv .venv
+python3.11 -m venv .venv         # Windows: py -3.11 -m venv .venv
 source .venv/bin/activate        # Windows (PowerShell): .venv\Scripts\Activate.ps1
 pip install -r requirements.txt  # installs deps + this package (editable)
 svedala info                     # works once you have done Lab 1
@@ -22,6 +22,9 @@ Two things to know on day one:
 - The package must be installed *editable* (the `-e .` line inside
   requirements.txt does this). A plain `pip install .` will not find the
   data folder.
+- Create the venv with an explicit interpreter (`python3.11`, or `py -3.11`
+  on Windows) — outside a venv, plain `python` is whichever Python your
+  system finds first, which is not predictable.
 
 Follow the lab instructions in the course material. Each lab has a
 self-check, run from the repo root: `python checks/lab1_check.py`.
