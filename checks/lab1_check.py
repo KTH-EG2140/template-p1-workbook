@@ -82,7 +82,7 @@ def c4_cli():
 def c5_tests():
     out = subprocess.run([sys.executable, "-m", "pytest", "-q", "tests"],
                          capture_output=True, text=True, timeout=600)
-    assert out.returncode == 0, out.stdout[-300:]
+    assert out.returncode == 0, _last_line(out.stdout)
     # the model test file ships with 2 tests + smoke; "your test" makes it >= 4
     tail = out.stdout.strip().splitlines()[-1]
     import re
