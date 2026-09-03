@@ -1,0 +1,10 @@
+# Rebuildable files never belong in the repository (LC2): the environment is
+# recreated from requirements.txt, the rest is Python's own caches.
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.DS_Store
+# Lab 5 data cache and DuckDB files (regenerated, and large)
+data_cache/
+*.duckdb
