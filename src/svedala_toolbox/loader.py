@@ -43,5 +43,7 @@ def run_power_flow(net: pp.pandapowerNet) -> pp.pandapowerNet:
     returning nonsense — Lecturecise 3). Watch out: pandapower signals
     non-convergence by RAISING its own pp.LoadflowNotConverged, not by
     returning — catch that and re-raise it as your RuntimeError.
+    Second trap: pp.runpp works IN PLACE and returns None — do not
+    return its result; return the net you were given.
     """
     raise NotImplementedError("Lab 1")
