@@ -61,16 +61,22 @@ def c3_power_flow():
         "unexpected total reactive load — did q_mvar make it from loads.csv into the network?")
 
 
+def _last_line(text: str) -> str:
+    """The final line of a traceback is the error itself — show that, not a cut-off tail."""
+    lines = text.strip().splitlines()
+    return lines[-1] if lines else "(no error output)"
+
+
 def c4_cli():
     exe = str(Path(sys.executable).with_name("svedala"))
     if not Path(exe).exists():
         exe = shutil.which("svedala")
     assert exe, "the `svedala` command was not found — is the package installed with `pip install -e .`?"
     out = subprocess.run([exe, "info"], capture_output=True, text=True, timeout=120)
-    assert out.returncode == 0, out.stderr[-300:]
+    assert out.returncode == 0, _last_line(out.stderr)
     assert "52" in out.stdout, "`svedala info` should mention the 52 buses"
     out = subprocess.run([exe, "pf"], capture_output=True, text=True, timeout=300)
-    assert out.returncode == 0, out.stderr[-300:]
+    assert out.returncode == 0, _last_line(out.stderr)
 
 
 def c5_tests():
