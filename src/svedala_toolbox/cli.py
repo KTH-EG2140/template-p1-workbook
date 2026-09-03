@@ -27,8 +27,17 @@ def cmd_pf(args: argparse.Namespace) -> None:
     raise NotImplementedError("Lab 1: implement `svedala pf`")
 
 
+# The shell finds `svedala` because pyproject.toml declares
+# [project.scripts] svedala = "svedala_toolbox.cli:main". The editable
+# install wrote an executable `svedala` shim into .venv/bin (Scripts\ on
+# Windows), and activation put that folder first on PATH. This function
+# is what the shim calls.
 def main() -> None:
     parser = argparse.ArgumentParser(prog="svedala", description=__doc__)
+    # required=True means argparse itself rejects a bare `svedala` and prints
+    # the usage and error text — built from prog and the subcommand names;
+    # the description and help= strings show up under -h. No code of ours
+    # prints any of it.
     sub = parser.add_subparsers(dest="command", required=True)
 
     p_info = sub.add_parser("info", help="show what the Svedala model contains")
