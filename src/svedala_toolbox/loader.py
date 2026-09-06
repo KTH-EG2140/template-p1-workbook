@@ -11,6 +11,14 @@ import pandas as pd
 import pandapower as pp
 
 # Default location of the five Svedala CSV files (bundled with this repo).
+# Built from THIS FILE's own location, not from where you happen to run:
+#   __file__            the path of loader.py itself
+#   .resolve()          make it absolute (no ".." or symlinks left in it)
+#   .parents[2]         three folders up: svedala_toolbox -> src -> repo root
+#   / "data" / "svedala"   then down into the data folder
+# Why not simply Path("data/svedala") as in the LC3 demo? A relative path
+# depends on where you RUN from; an installed package must find its data from
+# anywhere (the svedala CLI, pytest, a notebook), so it anchors on __file__.
 DATA_DIR = Path(__file__).resolve().parents[2] / "data" / "svedala"
 
 # Current limits are MISSING in the source data (the max_i_ka column is
