@@ -17,6 +17,9 @@ def fetch_load(zone: str, start: str, end: str,
     TODO (Lab 5): Parquet cache keyed on (zone, start, end); on miss, fetch via
     entsoe-py and write a JSON provenance sidecar (source, query, retrieved_utc,
     unit). Token from ENTSOE_TOKEN env var or entsoe_token.txt — NEVER hardcoded.
+    Note the default cache_dir="data_cache" is RELATIVE to where you run (fine for
+    a command run from the repo root); tests pass an explicit folder built from
+    __file__, the way loader.py builds DATA_DIR.
     """
     raise NotImplementedError("Lab 5, task 1")
 
@@ -26,7 +29,9 @@ def clean_load(series: pd.Series) -> tuple[pd.Series, list[str]]:
 
     TODO (Lab 5): UTC index, de-duplicate, remove impossible values,
     interpolate gaps <= 3 h. Every action appends one human sentence to the log.
-    Decide and document the long-gap policy.
+    Decide and document the long-gap policy. Trap: series.interpolate(limit=3)
+    fills the FIRST three hours of every gap, however long — measure each gap's
+    length before you decide which ones to bridge.
     """
     raise NotImplementedError("Lab 5, task 2")
 
