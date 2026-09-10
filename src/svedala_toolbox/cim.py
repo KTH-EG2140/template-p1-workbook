@@ -9,8 +9,10 @@ import pandas as pd
 def load_zone_map(eq_path: str | Path, csv_dir: str | Path) -> dict[str, str]:
     """ConformLoad mRID -> zone, via EQ names joined to the course CSVs.
 
-    TODO (Lab 6): EQ gives rdf:ID -> IdentifiedObject.name; loads.csv + buses.csv
-    give name -> bus -> zone. Log unmapped loads; document your policy for them.
+    TODO (Lab 6): EQ gives rdf:ID -> IdentifiedObject.name; loads.csv gives
+    name -> bus; buses.csv gives bus -> zone. Trap: the buses.csv column called
+    "zone" holds the SUBSTATION name - the ZON_* zone is SubGeographicalRegion_name,
+    the column Lab 1's loader used. Log unmapped loads; document your policy for them.
     """
     raise NotImplementedError("Lab 6, task 1")
 

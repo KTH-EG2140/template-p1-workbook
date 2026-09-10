@@ -16,8 +16,9 @@ def seasonal_persistence(y: pd.Series, horizon: int = 24, season: int = 168) -> 
     """The harder baseline: value(t) = value(t - season) — last Tuesday predicts this Tuesday.
 
     Plain persistence smears the weekend into Monday; shifting by a whole week
-    (168 h) keeps the weekly shape. The lecture calls this the baseline worth
-    beating.
+    (168 h) keeps the weekly shape - often the harder baseline, but not always:
+    when the weather moves inside a week, yesterday beats last Tuesday. On the
+    course series' test week it does. Which wins on YOUR week is a finding.
     TODO (Lab 7): one line again. Then check: which of the two baselines wins
     on your held-out week?
     """
