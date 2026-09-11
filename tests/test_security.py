@@ -3,4 +3,4 @@ import pytest
 
 
 def test_dataset_has_both_classes():
-    pytest.skip("Lab 8: labelled table contains secure AND insecure hours; features exclude the label")
+    pytest.skip("Lab 8: the committed tests/data table holds secure AND insecure hours; columns = the seven features + insecure")

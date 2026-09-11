@@ -11,8 +11,12 @@ def build_security_dataset(net_loader, year_parquet, n_hours: int = 250,
     Returns a DataFrame: one row per sampled hour, feature columns (zone loads,
     temperatures) + a boolean `insecure` label.
 
-    TODO (Lab 8): zone scaling as in LC9; labelling via your Lab 2 screener.
-    Full 52-outage labelling is slow — choose a documented shortcut and state
-    in the docstring what it can miss. Commit the resulting table.
+    TODO (Lab 8): scale each zone's loads by that hour's zone factor AND the
+    non-slack generators by the total factor (leave generation at the base case
+    and nothing converges); label with the screener's criterion. Full 52-outage
+    labelling takes a couple of minutes for 250 hours - a documented shortcut
+    (e.g. the 12 severest base-case outages) is optional; state in this
+    docstring which policy you chose and what it can miss. `seed` makes the
+    hour sample reproducible. Commit the resulting table under tests/data/.
     """
     raise NotImplementedError("Lab 8, task 1")
